@@ -16,3 +16,11 @@ print(f"Today is my day : {Day}, {Status}")
 
 Goal = "Build Real AI-Powerd Product"
 print(f"My goal is {Goal}")
+
+def count_text(text: str)->int:
+    words = text.split()
+    return len(words)
+text = "Python is powerfull"
+result = count_text(text)
+print(result)
+

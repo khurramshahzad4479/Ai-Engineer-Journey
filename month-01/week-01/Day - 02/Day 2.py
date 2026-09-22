@@ -1,3 +1,7 @@
+banner = """ ===============
+               DAY = 2
+             =============== """   
+
 def count_words(text: str)->int:
     return len(text.split())
 
@@ -28,3 +32,4 @@ def calculate_average(*args: float)->float:
         return sum(args)/len(args)
 Total = calculate_average(2,4,6,8)
 print(Total)
+

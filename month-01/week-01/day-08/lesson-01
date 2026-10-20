@@ -1,0 +1,64 @@
+with open("notes.txt", "w", encoding="utf-8")as file:
+
+    file.write("Today I'm learning file handling\n")
+    file.write("First I learn how to write a file\n")
+    file.write("Second How to read a saved file\n")
+    file.write("Third without deleting existing content how to add new data in file")
+
+print("file created successfully")
+
+with open("notes.txt", "r", encoding="utf-8" )as file:
+    content = file.read()
+print(content)
+
+with open("notes.txt", "a", encoding="utf-8" )as file:
+    file.write("\nDay 8 practice completed")
+
+try:   
+    with open("missing.txt", "r", encoding="utf-8" )as file:
+        content = file.read()
+
+    print(content)    
+
+except FileNotFoundError:
+    print("File does not exist")
+
+
+students = {
+    "Name" : "Moosa",
+"Marks" : 92,
+"Course": "Python"
+}
+
+import json
+
+students =[ 
+    {"Name" : "Moosa",
+"Marks" : 92,
+"Course": "Python"},
+{"Name" : "Sahar",
+"Marks" : 79,
+"Course": "Python"},
+{"Name" : "Ayaan",
+"Marks" : 83,
+"Course": "Python"}]
+
+with open("students.jason", "w", encoding="utf-8")as file:
+    json.dump(students, file, indent=4)
+
+with open("students.jason", "r", encoding="utf-8")as file:
+    students_data = json.load(file)
+
+# Find the highest scorer using max() and a lambda function
+highest_scorer = max(students_data, key=lambda s: s["Marks"])
+print("Highest Scorer :", highest_scorer)
+
+"""Create a function which load students from JSON and return highest scorer
+Function ka naam:
+def get_highest_scorer(filename: str) -> dict:"""
+
+
+def get_highest_scorer(filename: str) -> dict:
+    with open(filename, "r") as file:
+        students = json.load(file)
+    return max(students, key=lambda s: s["Marks"])

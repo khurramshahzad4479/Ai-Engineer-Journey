@@ -1,3 +1,5 @@
+# ===== OOP-based Student Management mini-project =====
+
 from abc import ABC, abstractmethod
 
 class Student(ABC):
@@ -117,5 +119,28 @@ try:
 except ValueError as e:
     print(f"Error: {e}")
     print(f"Current marks: {ali.get_marks()}")
+# ==========================================
+# Testing Section: Boundary Values (0 & 100)
+# ==========================================
 
-empty_students = []   
+if __name__ == "__main__":
+    ali = RegularStudent("Ali", 1, 85)
+    print(f"Initial marks: {ali.get_marks()}")
+
+    # Boundary Test 1: Update marks to 0
+    print("\n--- Boundary Test 1: Lower Limit (0) ---")
+    try:
+        ali.update_marks(0)
+        print("Marks updated to 0 successfully.")
+        print(f"Current marks: {ali.get_marks()}")
+    except ValueError as e:
+        print(f"Failed: {e}")
+
+    # Boundary Test 2: Update marks to 100
+    print("\n--- Boundary Test 2: Upper Limit (100) ---")
+    try:
+        ali.update_marks(100)
+        print("Marks updated to 100 successfully.")
+        print(f"Current marks: {ali.get_marks()}")
+    except ValueError as e:
+        print(f"Failed: {e}")
